@@ -1,253 +1,105 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Big Ben Joyas y Relojes</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #000000;
-      color: #ffffff;
-    }
-
-    header {
-      background: #000;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #444;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-      letter-spacing: 2px;
-      font-weight: 300;
-      color: #e8d18b;
-    }
-
-    nav a {
-      color: #fff;
-      margin-left: 20px;
-      text-decoration: none;
-      font-size: 15px;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #e8d18b;
-    }
-
-    .hero {
-      height: 70vh;
-      background: url('https://images.unsplash.com/photo-1524592577011-9a9ea3d1a3ab?q=80&w=1200') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero h2 {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px 40px;
-      border: 1px solid #e8d18b;
-      font-size: 36px;
-      letter-spacing: 3px;
-    }
-
-    .catalogo {
-      padding: 60px 40px;
-    }
-
-    .catalogo h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 32px;
-      color: #e8d18b;
-    }
-
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #e8d18b;
-    }
-
-    .card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-    }
-
-    .info {
-      padding: 20px;
-    }
-
-    .info h3 {
-      margin: 0;
-      margin-bottom: 10px;
-      font-weight: 300;
-      color: #e8d18b;
-    }
-
-    .info p { margin: 0; margin-bottom: 10px; }
-
-    .btn {
-      display: inline-block;
-      background: #e8d18b;
-      color: #000;
-      padding: 10px 20px;
-      margin-top: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #fff;
-    }
-
-    /* Producto sin stock */
-    .sin-stock::after {
-      content: "SIN STOCK";
-      position: absolute;
-      top: 10px;
-      right: -40px;
-      background: #a80000;
-      color: #fff;
-      padding: 8px 40px;
-      transform: rotate(45deg);
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Ben - Joyas y Relojes</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+  HEADER
   <header>
-    <h1>BIG BEN JOYAS Y RELOJES</h1>
+    <h1>BIG BEN • Joyas y Relojes</h1>
     <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="#">Contacto</a>
     </nav>
   </header>
 
-  <section class="hero" id="inicio">
-    <h2>Relojería & Joyería de Lujo<br>Elegancia Atemporal</h2>
+  <!-- HERO 
+  <section class="hero">
+    <div class="hero-box">
+      <h2>Relojería y joyería de lujo</h2>
+      <p>Elegancia atemporal</p>
+    </div>
   </section>
 
-  <section class="catalogo" id="exclusivo">
-    <h2>Catálogo Exclusivo</h2>
-    <div class="productos" id="listaExclusivo"></div>
-  </section>
+  <!-- CATÁLOGO 
+  <section class="catalogo">
+    <h2>Productos Destacados</h2>
 
-  <section class="catalogo" id="normal">
-    <h2>Catálogo General</h2>
-    <div class="productos" id="listaNormal"></div>
-  </section>
+    <div class="productos">
 
-  <script>
-  // Productos separados
-  const productosExclusivo = [
-    { nombre: "Alianzas de plata con oro", desc: "Plata con oro.", img: "https://http2.mlstatic.com/D_NQ_NP_630609-MLA46606516687_072021-O.webp", stock: 2 },
-    { nombre: "Reloj Midnight Black", desc: "Edición limitada.", img: "https://zenwaig.com.ar/wp-content/uploads/2024/03/Gold-1.jpg", stock: 1 }
-  ];
-
-  const productosGeneral = [
-    { nombre: "Aros Swarovski", desc: "Chapados en rodio.", img: "https://newswarovskiargentina.vtexassets.com/unsafe/1440x0/center/middle/https%3A%2F%2Fnewswarovskiargentina.vtexassets.com%2Farquivos%2Fids%2F655947%2Faros-swarovski-5731149-1.jpg%3Fv%3D638883819606230000", stock: 3 },
-    { nombre: "Anillo Silver Love", desc: "Anillo plata 925 estilo minimalista.", img: "https://acdn-us.mitiendanube.com/stores/149/868/products/491-ccb742090b2041585915983883128307-1024-1024.webp", stock: 5 },
-    { nombre: "Pulsera Golden Link", desc: "Pulsera de acero quirúrgico dorado.", img: "https://belcorpperu.vtexassets.com/arquivos/ids/295699/210105119-fotoproductoenfondoblanco.jpg?v=638448262596630000", stock: 4 },
-    { nombre: "Aros Diamond Drop", desc: "Aros con incrustaciones de zirconia.", img: "https://sentidoaccesorios.com/cdn/shop/files/CapturadePantalla2024-06-18ala_s_15.54.39.png?v=1718742269", stock: 6 }
-  ];
-
-  const listaEx = document.getElementById("listaExclusivo");
-  const listaNorm = document.getElementById("listaNormal");
-
-  function renderCatalogo() {
-    listaEx.innerHTML = "";
-    listaNorm.innerHTML = "";
-
-    // Render exclusivos (desaparecen si stock = 0)
-    productosExclusivo.forEach((p, index) => {
-      if (p.stock === 0) return; // desaparece
-
-      const card = document.createElement("div");
-      card.className = "card";
-
-      card.innerHTML = `
-        <img src="${p.img}" />
+      <!-- PRODUCTO NORMAL 
+      <div class="card" data-index="0">
+        <img src="img/reloj1.jpg" alt="Reloj 1">
         <div class="info">
-          <h3>${p.nombre}</h3>
-          <p>${p.desc}</p>
-          <a class='btn comprar-ex' data-index='${index}'>Comprar (${p.stock})</a>
+          <h3>Reloj Clásico</h3>
+          <p class="descripcion">Acero inoxidable, diseño elegante.</p>
+          <p class="precio">$120.000</p>
+          <button class="btn comprar" data-index="0">Comprar (2)</button>
         </div>
-      `;
+      </div>
 
-      listaEx.appendChild(card);
-    });
-
-    // Render catálogo general (NO desaparecen, queda SIN STOCK)
-    productosGeneral.forEach((p, index) => {
-      const card = document.createElement("div");
-      card.className = "card";
-      if (p.stock === 0) card.classList.add("sin-stock");
-
-      card.innerHTML = `
-        <img src="${p.img}" />
+      <!-- PRODUCTO NORMAL 
+      <div class="card" data-index="1">
+        <img src="img/reloj2.jpg" alt="Reloj 2">
         <div class="info">
-          <h3>${p.nombre}</h3>
-          <p>${p.desc}</p>
-          ${p.stock > 0
-            ? `<a class='btn comprar-gen' data-index='${index}'>Comprar (${p.stock})</a>`
-            : `<a class='btn' style='pointer-events:none;opacity:0.5;'>Sin stock</a>`}
+          <h3>Reloj Premium</h3>
+          <p class="descripcion">Alta calidad, resistente al agua.</p>
+          <p class="precio">$180.000</p>
+          <button class="btn comprar" data-index="1">Comprar (4)</button>
         </div>
-      `;
+      </div>
 
-      listaNorm.appendChild(card);
-    });
+      <!-- PRODUCTO ORO → WHATSAPP 
+      <div class="card" data-index="2">
+        <img src="img/anillo-oro.jpg" alt="Anillo Oro">
+        <div class="info">
+          <h3>Anillo de Oro 18K</h3>
+          <p class="descripcion">Joyas exclusivas de alta pureza.</p>
+          <p class="precio">$450.000</p>
 
-    // Eventos exclusivos
-    document.querySelectorAll('.comprar-ex').forEach(btn => {
-      btn.addEventListener('click', e => {
-        const i = e.target.getAttribute('data-index');
-        productosExclusivo[i].stock--;
-        if (productosExclusivo[i].stock < 0) productosExclusivo[i].stock = 0;
-        renderCatalogo();
-      });
-    });
+          <a class="btn btn-wapp" href="https://wa.me/5491134567890?text=Hola, quiero comprar el anillo de oro 18K" target="_blank">
+            Comprar (WhatsApp)
+          </a>
+        </div>
+      </div>
 
-    // Eventos generales
-    document.querySelectorAll('.comprar-gen').forEach(btn => {
-      btn.addEventListener('click', e => {
-        const i = e.target.getAttribute('data-index');
-        productosGeneral[i].stock--;
-        if (productosGeneral[i].stock < 0) productosGeneral[i].stock = 0;
-        renderCatalogo();
-      });
-    });
-  }
+    </div>
+  </section>
 
-  renderCatalogo();
-</script>
+  <!-- ASISTENTE
+  <img src="img/asistente.png" class="assistant-image" id="assistantImage">
 
+  <div id="chatAsistente" class="chat-container" aria-hidden="true">
+    <div class="chat-header">
+      <span class="chat-title">Asistente Big Ben</span>
+      <button class="chat-close" id="chatCerrar">✕</button>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+      <div class="mensaje-bot">
+        ¡Hola! ¿En qué puedo ayudarte?
+      </div>
+    </div>
+
+    <div class="preguntas">
+      <button class="pregunta" data-answer="Nuestros relojes tienen garantía oficial de 12 meses.">
+        ¿Tienen garantía?
+      </button>
+      <button class="pregunta" data-answer="Hacemos envíos a todo el país por correo certificado.">
+        ¿Hacen envíos?
+      </button>
+      <button class="pregunta" data-answer="Aceptamos tarjetas, débito, crédito y efectivo.">
+        ¿Qué medios de pago aceptan?
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
-</html>
+</html> -->

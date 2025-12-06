@@ -1,0 +1,306 @@
+/* ========================= ESTILOS BASE ========================= */
+body {
+  margin: 0;
+  font-family: 'Malibu Sunday Serif', serif;
+  background: #011611;
+  color: #ffffff;
+}
+
+/* ========================= HEADER ========================= */
+header {
+  background: #000;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 2px;
+  font-weight: 300;
+  color: #e8d18b;
+}
+
+nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+nav a:hover { color: #e8d18b; }
+
+/* ========================= HERO ========================= */
+.hero {
+  width: 100%;
+  background: #00110F;
+  padding: 90px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-box {
+  border: 1px solid #d2c08c;
+  padding: 25px 50px;
+  text-align: center;
+  max-width: 580px;
+}
+
+.hero-box h2 { font-size: 30px; margin: 0; font-weight: 700; }
+.hero-box p { font-size: 22px; margin-top: 10px; }
+
+/* ========================= CATÁLOGO ========================= */
+.catalogo { padding: 60px 40px; }
+
+.catalogo h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 32px;
+  color: #e8d18b;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 30px;
+}
+
+/* ========================= TARJETAS ========================= */
+.card {
+  background: #ffffff;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.3s;
+  color: #000;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #e8d18b;
+}
+
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.info { padding: 20px; }
+
+.info h3 {
+  margin: 0 0 10px 0;
+  font-weight: 300;
+  color: #000;
+}
+
+.descripcion { color: #4f5a5a; }
+.precio { font-weight: 700; }
+
+/* ========================= BOTONES ========================= */
+.btn {
+  display: inline-block;
+  background: #e8d18b;
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover { background: #fff; }
+
+/* ========================= STOCK ========================= */
+.sin-stock {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.sin-stock::after {
+  content: "SIN STOCK";
+  position: absolute;
+  top: 12px;
+  right: -30px;
+  background: #a80000;
+  color: #fff;
+  padding: 6px 30px;
+  transform: rotate(45deg);
+  font-weight: bold;
+}
+
+/* ========================= ASISTENTE ========================= */
+/* Mantengo tu esquema de posicionamiento y colores */
+
+/* Botón/imagen del asistente (flotante) */
+.assistant-image {
+  position: fixed;
+  right: 28px;
+  bottom: 22px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #d2c08c;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  z-index: 9998;
+  object-fit: cover;
+}
+
+/* Contenedor del chat (usa la clase que ya tenés: chat-container, y en HTML lo usás con id #chatAsistente) */
+.chat-container {
+  width: 340px;
+  height: 420px;
+  background: #ffffff;
+  color: #000;
+  position: fixed;
+  right: 28px;
+  bottom: 100px;
+  display: none; /* se muestra vía JS */
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  overflow: hidden;
+  z-index: 9999;
+  animation: popIn .18s ease;
+}
+
+/* Cabecera */
+.chat-header {
+  background: #011611;
+  color: #fff;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Malibu Sunday Serif', serif;
+  font-weight: 700;
+}
+
+/* Botón de cerrar dentro de la cabecera */
+.chat-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Cuerpo del chat: área de mensajes */
+.chat-body {
+  padding: 12px;
+  overflow-y: auto;
+  background: #fafafa;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Mensajes del bot (estilo distinguido, alineado a la izquierda) */
+.mensaje-bot,
+.msg-bot {
+  background: #ffffff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  max-width: 85%;
+  border-left: 5px solid #011611;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  color: #111;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Mensajes del usuario (alineados a la derecha con estilo propio) */
+.mensaje-user,
+.msg-user {
+  background: #dfe9ff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  max-width: 85%;
+  margin-left: auto;
+  border-right: 5px solid #1e40af;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  color: #111;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Preguntas rápidas (botones) */
+.preguntas {
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: #f1f1f1;
+  border-top: 1px solid #eee;
+}
+
+.pregunta {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.18s;
+}
+
+.pregunta:hover {
+  background: #f5f5f5;
+}
+
+/* FAQ (cuando uses .faq-q / .faq-a, preservo estas reglas también) */
+.faq-q {
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.faq-a {
+  display: none;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #fff;
+  border-left: 3px solid #011611;
+  border-radius: 8px;
+}
+
+/* Animación de entrada (ya la tenías) */
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(10px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Media queries básicos para responsividad del chat y productos */
+@media (max-width: 900px) {
+  .productos {
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  }
+
+  .chat-container {
+    right: 16px;
+    bottom: 80px;
+    width: calc(100% - 32px);
+    max-width: 420px;
+  }
+
+  .assistant-image {
+    right: 18px;
+    bottom: 18px;
+    width: 56px;
+    height: 56px;
+  }
+}
+

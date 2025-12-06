@@ -1,0 +1,309 @@
+/* ======================== RESETEO ======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #011611;
+  font-family: 'Malibu Sunday Serif', serif;
+  color: #fff;
+}
+
+/* ======================== HEADER SUPERIOR ======================== */
+.header-top {
+  width: 100%;
+  background: #000;
+  padding: 12px 30px;
+  position: relative;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #d4af37;
+}
+
+/* BUSCADOR */
+.search-box {
+  display: flex;
+  width: 40%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.search-box input {
+  width: 100%;
+  border: none;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.search-box .search-btn {
+  background: #7a00ff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* ICONOS HEADER - UNIFICADOS */
+.icons .icon-item {
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.icons .icon-item i {
+  font-size: 24px;
+  color: #d4af37;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.icons .icon-item:hover i {
+  color: #7a00ff;
+  transform: scale(1.2);
+}
+
+/* ======================== HEADER INFERIOR ======================== */
+.header-bottom {
+  width: 100%;
+  background: #000;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  position: relative;
+  z-index: 999;
+}
+
+.menu {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  list-style: none;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-item > a {
+  display: block;
+  padding: 15px 25px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.menu-item:hover > a {
+  color: #7a00ff;
+}
+
+/* ======================== MEGA MENU ======================== */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 240px;
+  background: #ffffff;
+  display: none;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.15);
+  z-index: 2000;
+}
+
+.mega-menu .column {
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-menu h4 {
+  margin-bottom: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #000;
+}
+
+.mega-menu a {
+  color: #222;
+  margin-bottom: 8px;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.mega-menu a:hover {
+  color: #00ff6a;
+}
+
+/* MOSTRAR SUB MENÚ */
+.menu-item.open .mega-menu {
+  display: block;
+}
+
+/* =================== ASISTENTE =================== */
+.assistant-image {
+  width: 90px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: transform .3s;
+  z-index: 9999;
+}
+
+.assistant-image:hover {
+  transform: scale(1.1);
+}
+
+.chat-container {
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  width: 280px;
+  background: #02251d;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  display: none;
+  flex-direction: column;
+  z-index: 9999;
+  font-family: Arial;
+}
+
+.chat-header {
+  background: black;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px 12px 0 0;
+}
+
+.chat-body {
+  padding: 10px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.mensaje-bot {
+  background: #000000;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.preguntas {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pregunta {
+  background: #011611;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: background .2s;
+}
+
+.pregunta:hover {
+  background: #033a33;
+}
+
+/* =================== LISTADO DE PRODUCTOS =================== */
+.catalogo {
+  padding: 40px;
+  text-align: center;
+}
+
+.catalogo h2 {
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 230px));
+  justify-content: center;
+  gap: 25px;
+}
+
+/* ==== PRODUCTOS CON FONDO NEGRO + MARCO DORADO 🔥 ==== */
+.card {
+  background: #000000;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  border: 2px solid #d4af37;
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 420px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(212,175,55,.65);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;       
+  object-fit: contain;  
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+}
+
+.card .precio {
+  color: #d4af37;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+/* BOTÓN */
+.card button {
+  padding: 8px 15px;
+  border: none;
+  background: #7a00ff;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background .2s, transform .2s;
+}
+
+.card button:hover {
+  background: #d4af37;
+  color: #000;
+  transform: scale(1.05);
+}
